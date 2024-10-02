@@ -10,7 +10,12 @@ class PageController extends Controller
 {
     public function index(){
 
-        $posts= Post::all();
-        return response()->json($posts);
+        $posts= Post::orderBy('id', 'desc');
+        $succsess= true;
+        $response= [
+            'succsess'=>$succsess,
+            'results'=>$posts,
+        ];
+        return response()->json($response);
     }
 }
