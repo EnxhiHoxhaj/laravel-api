@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tag;
 
 class PageController extends Controller
 {
@@ -26,6 +27,17 @@ class PageController extends Controller
         $response= [
             'succsess'=>$succsess,
             'results'=>$categories,
+        ];
+        return response()->json($response);
+    }
+
+    public function allTags(){
+
+        $tags= tag::orderBy('id', 'desc')->get();
+        $succsess= true;
+        $response= [
+            'succsess'=>$succsess,
+            'results'=>$tags,
         ];
         return response()->json($response);
     }

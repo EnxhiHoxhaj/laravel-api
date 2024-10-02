@@ -21,3 +21,4 @@ use App\Http\Controllers\Api\PageController;
 
 Route::get('/', [PageController::class, 'allPosts']);
 Route::get('/categories', [PageController::class, 'allCategories']);
+Route::get('/tags', [PageController::class, 'allTags']);
