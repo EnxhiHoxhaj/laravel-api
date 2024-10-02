@@ -10,34 +10,34 @@ use App\Models\Tag;
 
 class PageController extends Controller
 {
-    public function allPosts(){
+    public function allWorks(){
 
-        $posts= Post::orderBy('id', 'desc')->get();
+        $works= Post::orderBy('id', 'desc')->get();
         $succsess= true;
         $response= [
             'succsess'=>$succsess,
-            'results'=>$posts,
+            'results'=>$works,
         ];
         return response()->json($response);
     }
-    public function allCategories(){
+    public function allTechnologies(){
 
-        $categories= Category::orderBy('id', 'desc')->get();
+        $technologies= Category::orderBy('id', 'desc')->get();
         $succsess= true;
         $response= [
             'succsess'=>$succsess,
-            'results'=>$categories,
+            'results'=>$technologies,
         ];
         return response()->json($response);
     }
 
-    public function allTags(){
+    public function allTypes(){
 
-        $tags= tag::orderBy('id', 'desc')->get();
+        $types= tag::orderBy('id', 'desc')->get();
         $succsess= true;
         $response= [
             'succsess'=>$succsess,
-            'results'=>$tags,
+            'results'=>$types,
         ];
         return response()->json($response);
     }

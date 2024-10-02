@@ -19,6 +19,6 @@ use App\Http\Controllers\Api\PageController;
 //     return $request->user();
 // });
 
-Route::get('/', [PageController::class, 'allPosts']);
-Route::get('/categories', [PageController::class, 'allCategories']);
-Route::get('/tags', [PageController::class, 'allTags']);
+Route::get('/', [PageController::class, 'allWorks']);
+Route::get('/tecnologie', [PageController::class, 'allTechnologies']);
+Route::get('/tipi', [PageController::class, 'allTypes']);
