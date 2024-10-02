@@ -19,4 +19,5 @@ use App\Http\Controllers\Api\PageController;
 //     return $request->user();
 // });
 
-Route::get('/', [PageController::class, 'index']);
+Route::get('/', [PageController::class, 'allPosts']);
+Route::get('/categories', [PageController::class, 'allCategories']);
