@@ -70,4 +70,14 @@ class PageController extends Controller
         ];
         return response()->json($response);
     }
+    public function postByTypes($slug){
+        $types = Tag::where('slug', $slug)->with('posts')->first();
+        if($types){
+            $succsess = true;
+        } else {
+            $succsess= false;
+        }
+        return response()->json(compact('succsess', 'types'));
+    }
+
 }

@@ -24,4 +24,5 @@ Route::get('/post-by-slug/{slug}', [PageController::class, 'postBySlug']);
 Route::get('/tecnologie', [PageController::class, 'allTechnologies']);
 Route::get('/post-by-tecnologie/{slug}', [PageController::class, 'postByTecnologies']);
 Route::get('/tipi', [PageController::class, 'allTypes']);
+Route::get('/post-by-tipi/{slug}', [PageController::class, 'postByTypes']);
 
