@@ -24,6 +24,18 @@ class PageController extends Controller
     public function postBySlug($slug) {
 
         $post = Post::where('slug', $slug)->with('category', 'tags')->first();
+        if($post){
+            $succsess = true;
+        // if($post->path_image){
+        //     $post->path_image=asset('storage/'.$post->path_image);
+        // }else{
+        //     $post->path_image='/img/no-image.jpg';
+        //     $post->image_original_name= 'no image';
+        // }
+        } else {
+            $succsess= false;
+        }
+
         return response()->json($post);
     }
 
