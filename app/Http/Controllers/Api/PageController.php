@@ -72,6 +72,11 @@ class PageController extends Controller
     }
     public function postByTypes($slug){
         $types = Tag::where('slug', $slug)->with('posts')->first();
+
+        // foreach($types->posts as $post){
+        //     $post->category_name=$post->category->name;
+        // }
+
         if($types){
             $succsess = true;
         } else {
