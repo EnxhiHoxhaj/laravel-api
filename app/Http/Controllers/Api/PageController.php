@@ -51,13 +51,13 @@ class PageController extends Controller
     }
 
     public function postByTecnologies($slug){
-        $post = Category::where('slug', $slug)->with('posts')->first();
-        if($post){
+        $category = Category::where('slug', $slug)->with('posts')->first();
+        if($category ){
             $succsess = true;
         } else {
             $succsess= false;
         }
-        return response()->json(compact('posts', 'succsess'));
+        return response()->json(compact('succsess', 'category'));
     }
 
     public function allTypes(){
@@ -70,6 +70,4 @@ class PageController extends Controller
         ];
         return response()->json($response);
     }
-
-
 }
