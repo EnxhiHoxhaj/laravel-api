@@ -12,7 +12,7 @@ class PageController extends Controller
 {
     public function allWorks(){
 
-        $works= Post::orderBy('id', 'desc')->with('category', 'tags')->get();
+        $works= Post::orderBy('id', 'desc')->with('category', 'tags')->paginate(10);
         $succsess= true;
         $response= [
             'succsess'=>$succsess,
@@ -20,6 +20,13 @@ class PageController extends Controller
         ];
         return response()->json($response);
     }
+
+    public function postBySlug($slug) {
+
+        $post = Post::where('slug', $slug)->with('category', 'tags')->first();
+        return response()->json($post);
+    }
+
     public function allTechnologies(){
 
         $technologies= Category::orderBy('id', 'desc')->get();
