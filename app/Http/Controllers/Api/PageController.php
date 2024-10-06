@@ -36,7 +36,7 @@ class PageController extends Controller
             $succsess= false;
         }
 
-        return response()->json($post);
+        return response()->json(compact('succsess', 'post'));
     }
 
     public function allTechnologies(){
@@ -50,9 +50,19 @@ class PageController extends Controller
         return response()->json($response);
     }
 
+    public function postByTecnologies($slug){
+        $post = Category::where('slug', $slug)->with('posts')->first();
+        if($post){
+            $succsess = true;
+        } else {
+            $succsess= false;
+        }
+        return response()->json(compact('posts', 'succsess'));
+    }
+
     public function allTypes(){
 
-        $types= tag::orderBy('id', 'desc')->get();
+        $types= Tag::orderBy('id', 'desc')->get();
         $succsess= true;
         $response= [
             'succsess'=>$succsess,
@@ -60,4 +70,6 @@ class PageController extends Controller
         ];
         return response()->json($response);
     }
+
+
 }
