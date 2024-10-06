@@ -12,7 +12,7 @@ class PageController extends Controller
 {
     public function allWorks(){
 
-        $works= Post::orderBy('id', 'desc')->get();
+        $works= Post::orderBy('id', 'desc')->with('category', 'tags')->get();
         $succsess= true;
         $response= [
             'succsess'=>$succsess,
